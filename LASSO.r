@@ -2,6 +2,7 @@ library("glmnet")
 library("survival")
 myexpr <- read.csv("easy_input_exp.csv",header = T,row.names = 1,check.names = F)
 mysurv <- read.csv("easy_input_suv.csv",header = T,row.names = 1)
+mysurv$futime <- mysurv$futime/365 #convert days to years
 cvfit = cv.glmnet(t(myexpr), Surv(mysurv$futime,mysurv$fustat), nfold=10, 
                   family = "cox"   
 )  #LASSO regression with 10 folds cross validation
