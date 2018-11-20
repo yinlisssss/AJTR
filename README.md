@@ -1,2 +1,2 @@
 # AJTR
-ATJR input file
+ATJR file and code for reproducing results
